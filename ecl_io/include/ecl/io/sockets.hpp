@@ -75,7 +75,8 @@ public:
    */
   SocketError(const ErrorFlag& flag = UnknownError) : Error(flag)
   {}
-protected:
+  using Error::operator=;
+ protected:
   virtual const char* invalidArgErrorString() const
   { return "One of the arguments is invalid (usually a socket descriptor).";}
 #ifdef ECL_IS_WIN32
